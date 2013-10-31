@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Email</th>
+      <th>Ingredients</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= recipe.title %></td>
         <td><%= recipe.user.email if recipe.user %></td>
+        <td><%= recipe.ingredients %></td>
         <td><%= link_to 'Show', recipe %></td>
         <% if recipe.user == current_user %>
           <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>

@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to recipe_url
+    redirect_to recipes_url
     end
 
   private
@@ -52,6 +52,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title)
+      params.require(:recipe).permit([:title, :ingredients])
     end
 end

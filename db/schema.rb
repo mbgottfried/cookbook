@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031190414) do
+ActiveRecord::Schema.define(version: 20131031195703) do
 
   create_table "recipes", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "ingredients"
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
