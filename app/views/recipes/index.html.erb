@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,14 +15,18 @@
     <% @recipes.each do |recipe| %>
       <tr>
         <td><%= recipe.title %></td>
+        <td><%= recipe.user.email if recipe.user %></td>
         <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if recipe.user == current_user %>
+          <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+          <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if user_signed_in? %>
 <%= link_to 'New Recipe', new_recipe_path %>
+<% end %>

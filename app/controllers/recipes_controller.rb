@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :show, :edit, :create, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -9,14 +11,14 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def edit
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
       if @recipe.save
         redirect_to @recipe, notice: 'Recipe was successfully added.'
       else
@@ -36,12 +38,16 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipe_url
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])
+    end
+
+    def correct_user
+      @recipe = current_user.recipes.find_by(id: params[:id])
+      redirect_to recipes_path, notice: "You can only edit recipes you have contributed." if @recipe.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
