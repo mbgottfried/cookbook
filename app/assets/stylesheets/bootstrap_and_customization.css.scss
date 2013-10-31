@@ -1,12 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 
 /* Global Styles */
-$body-bg: 							#ecf0f1;
+$body-bg: 							#ffffff;
 $font-family-sans-serif:			'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 /* Navbar Styles */
-$navbar-default-bg: 				#34495e;
-$navbar-height: 					55px;
+$navbar-default-bg: 				#2c3e50;
+$navbar-height: 					80px;
 $navbar-border-radius:				0px;
 $navbar-default-link-color:			#ecf0f1;
 $navbar-default-link-hover-color:	#3498db;
@@ -20,5 +20,6 @@ $jumbotron-bg:						#ecf0f1;
 
 /* General Styles */
 .center 							{text-align: center;}
+.right								{text-align: right;}
 
 @import 'bootstrap';
