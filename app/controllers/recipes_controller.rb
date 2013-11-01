@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :show, :edit, :create, :destroy]
 
   def index
-    @recipes = Recipe.all.order("created_at DESC")
+    @recipes = Recipe.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
