@@ -1,16 +1,24 @@
+<%= link_to '< Back', recipes_path %>
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @recipe.image.url(:medium) %>
-
-<p>
-  <strong>Title:</strong>
-  <%= @recipe.title %>
-</p>
-<p>
-	<strong>Ingredients:</strong>
-	<%= @recipe.ingredients %>
-</p>
-<% if @recipe.user == current_user %>
-	<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-	<%= link_to 'Back', recipes_path %>
-<% end %>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @recipe.image.url(:medium) %>
+			</div>
+			<div class="panel-body">
+				<strong><%= @recipe.title %></strong>
+				<p>
+					<strong>Ingredients:</strong>
+					<%= @recipe.ingredients %>
+				</p>
+			
+			
+				<% if @recipe.user == current_user %>
+					<%= link_to 'Edit', edit_recipe_path(@recipe) %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
