@@ -10,7 +10,10 @@ $navbar-height: 					80px;
 $navbar-border-radius:				0px;
 $navbar-default-link-color:			#ecf0f1;
 $navbar-default-link-hover-color:	#3498db;
-.navbar 							{text-transform: uppercase;}
+.navbar {
+	text-transform: uppercase;
+	border-bottom: 1px solid #bdc3c7;
+}
 
 /* NavBar Brand Styles */
 $navbar-default-brand-hover-color:	#3498db;
@@ -21,5 +24,24 @@ $jumbotron-bg:						#ecf0f1;
 /* General Styles */
 .center 							{text-align: center;}
 .right								{text-align: right;}
+
+/* Footer */
+footer {
+	background: none repeat scroll 0 0 #fff;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	height: 76px; 
+	border-top: 1px solid #bdc3c7;
+	margin: 50px 0 0;
+}
+
+/* Home Page */
+.home-panel {
+	background: #2c3e50;
+	margin: -20px 0 40px;
+	padding: 100px 0;
+	color: #fff;
+}
 
 @import 'bootstrap';

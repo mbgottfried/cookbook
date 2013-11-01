@@ -5,7 +5,8 @@
       <%= link_to image_tag(recipe.image.url(:medium)), recipe %>
         <div class="panel-body">
           <%= link_to recipe.title, recipe %>
-          <%= recipe.user.email if recipe.user %>
+          <br />
+          Chef <%= recipe.user.username if recipe.user %>
           </div>
           
           <% if recipe.user == current_user %>

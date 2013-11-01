@@ -9,6 +9,7 @@
 			</div>
 			<div class="panel-body">
 				<strong><%= @recipe.title %></strong>
+				<br />Contributed by Chef <%= @recipe.user.username if @recipe.user %>
 				<p>
 					<strong>Ingredients:</strong>
 					<%= @recipe.ingredients %>
