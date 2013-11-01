@@ -1,6 +1,4 @@
 <%= link_to '< Back', recipes_path %>
-<p id="notice"><%= notice %></p>
-
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default">
@@ -8,13 +6,17 @@
 				<%= image_tag @recipe.image.url(:medium) %>
 			</div>
 			<div class="panel-body">
-				<strong><%= @recipe.title %></strong>
-				<br />Contributed by Chef <%= @recipe.user.username if @recipe.user %>
-				<p>
-					<strong>Ingredients:</strong>
-					<%= @recipe.ingredients %>
-				</p>
-			
+				<div class="recipe-title">
+					<strong><%= @recipe.title %></strong>
+					<br />Contributed by Chef <%= @recipe.user.username if @recipe.user %>
+				</div>
+				<br />
+				<div class="recipe-instructions">
+					<p>
+						<strong>Recipe Instructions:</strong>
+						<%= raw(@recipe.ingredients) %>
+					</p>
+			</div>
 			
 				<% if @recipe.user == current_user %>
 					<%= link_to 'Edit', edit_recipe_path(@recipe) %>

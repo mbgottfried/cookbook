@@ -3,5 +3,6 @@ class Recipe < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
 	validates :image, presence: true
-  	validates :description, presence: true
+  	validates :title, presence: true
+  	validates :ingredients, presence: true
 end
